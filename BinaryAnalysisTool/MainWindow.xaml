@@ -1,0 +1,40 @@
+﻿<Window x:Name="MainForm" x:Class="BinaryAnalysisTool.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BinaryAnalysisTool"
+        mc:Ignorable="d"
+        Title="二进制分析辅助工具" Height="450" Width="800">
+    <DockPanel LastChildFill="False" Margin="0,0,3,0">
+        <Menu DockPanel.Dock="Top" Margin="0" VerticalAlignment="Center">
+            <MenuItem Header="文件">
+                <!--菜单项为MenuItem，文字使用属性 Header-->
+                <MenuItem Name="Menu_OpenText" Header="打开文本文件"></MenuItem>
+                <MenuItem Name="Menu_OpenBinary" Header="打开二进制文件"></MenuItem>
+                <MenuItem Name="Menu_LoadConfig" Header="加载配置文件"></MenuItem>
+                <MenuItem Name="Menu_Exit" Header="退出" Click="Menu_Exit_Click"></MenuItem>
+            </MenuItem>
+            <MenuItem Header="Edit"></MenuItem>
+            <MenuItem Header="View"></MenuItem>
+            <MenuItem Header="About"></MenuItem>
+        </Menu>
+        <Grid Width="793.6" Margin="0">
+            <GroupBox Header="协议相关" HorizontalAlignment="Left" Margin="10,10,0,10" Width="151">
+                <Grid Margin="0">
+                    <ListBox Margin="0,0,0.2,187.6" Background="{x:Null}"/>
+                </Grid>
+            </GroupBox>
+            <GroupBox Header="展示区" Margin="166,10,9.6,10">
+                <Grid Margin="0,0,0,1">
+                    <RichTextBox x:Name="rTbx_Main" Margin="0">
+                        <FlowDocument>
+                            <Paragraph/>
+                        </FlowDocument>
+                    </RichTextBox>
+                </Grid>
+            </GroupBox>
+
+        </Grid>
+    </DockPanel>
+</Window>
