@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BinaryAnalysisTool"
         mc:Ignorable="d"
-        Title="二进制分析辅助工具" Height="450" Width="800">
+        Title="二进制分析辅助工具" Height="728" Width="1200">
     <DockPanel LastChildFill="False" Margin="0,0,3,0">
         <Menu DockPanel.Dock="Top" Margin="0" VerticalAlignment="Center">
             <MenuItem Header="文件">
@@ -14,29 +14,27 @@
                 <MenuItem Name="Menu_OpenBinary" Header="打开二进制文件" Click="Menu_OpenBinary_Click"></MenuItem>
                 <MenuItem Name="Menu_Exit" Header="退出" Click="Menu_Exit_Click"></MenuItem>
             </MenuItem>
-            <MenuItem Header="Edit"></MenuItem>
-            <MenuItem Header="View"></MenuItem>
-            <MenuItem Header="About"></MenuItem>
+            <MenuItem Header="刷新" Click="MenuItem_Refresh_Click"></MenuItem>
         </Menu>
         <Grid Margin="0" DockPanel.Dock="Right">
             <GroupBox Header="协议相关" HorizontalAlignment="Left" Margin="10,10,0,101.2" Width="151">
                 <Grid Margin="0">
-                    <ListBox x:Name="lsbx_cond" Margin="3,3,3.2,111.4" Background="{x:Null}"/>
-                    <ComboBox x:Name="combx_type" Margin="3,0,3,79.4" SelectedIndex="0" Height="22" VerticalAlignment="Bottom">
+                    <ListBox x:Name="lsbx_cond" Margin="3,3,3.2,129.8" Background="{x:Null}"/>
+                    <ComboBox x:Name="combx_type" Margin="3,0,3,102.8" SelectedIndex="0" Height="22" VerticalAlignment="Bottom">
                         <ComboBoxItem Content="不启用"/>
                         <ComboBoxItem Content="按位置"/>
                         <ComboBoxItem Content="按内容"/>
                     </ComboBox>
-                    <TextBox x:Name="tbx_cond" TextWrapping="Wrap" Margin="3,0,3,27.4" Height="21" VerticalAlignment="Bottom" VerticalContentAlignment="Center"/>
-                    <Button Content="添加条件" Margin="3,0,3,3" Height="19" VerticalAlignment="Bottom" Padding="1"/>
-                    <ComboBox x:Name="combx_color" Margin="3,0,3,53.4" Height="21" VerticalAlignment="Bottom"/>
+                    <TextBox x:Name="tbx_cond" TextWrapping="Wrap" Margin="3,0,3,50.8" Height="21" VerticalAlignment="Bottom" VerticalContentAlignment="Center"/>
+                    <Button x:Name="Btn_DelCond" Content="删除条件" Margin="3,0,3,26.8" Height="19" VerticalAlignment="Bottom" Padding="1" Click="Btn_DelCond_Click"/>
+                    <ComboBox x:Name="combx_color" Margin="3,0,3,76.8" Height="21" VerticalAlignment="Bottom"/>
+                    <Button x:Name="Btn_AddCond" Content="添加条件" Margin="3,0,3,3" Height="19" VerticalAlignment="Bottom" Padding="1" Click="Btn_AddCond_Click"/>
                 </Grid>
             </GroupBox>
             <GroupBox Header="展示区" Margin="166,10,9.6,10">
                 <Grid Margin="0,0,0,1">
                     <RichTextBox x:Name="rTbx_Main" Margin="0">
                         <FlowDocument>
-                            <Paragraph/>
                         </FlowDocument>
                     </RichTextBox>
                 </Grid>
@@ -44,9 +42,9 @@
             <GroupBox Header="帧头帧尾" HorizontalAlignment="Left" Height="86" Margin="10,0,0,10.2" VerticalAlignment="Bottom" Width="151">
                 <Grid Margin="0">
                     <Label Content="帧头：" Margin="10,0,89.2,35.6" Padding="0" VerticalContentAlignment="Center" Height="20" RenderTransformOrigin="0.94,1.03" VerticalAlignment="Bottom"/>
-                    <TextBox x:Name="tbx_head" TextWrapping="Wrap" Margin="55,0,10.2,35.6" Height="20" VerticalContentAlignment="Center" VerticalAlignment="Bottom"/>
+                    <TextBox x:Name="tbx_head" TextWrapping="Wrap" Margin="55,0,10.2,35.6" Height="20" VerticalContentAlignment="Center" VerticalAlignment="Bottom" TextChanged="tbx_head_TextChanged"/>
                     <Label Content="帧尾：" Margin="10,0,89.2,9.6" Padding="0" VerticalContentAlignment="Center" Height="20" RenderTransformOrigin="0.94,1.03" VerticalAlignment="Bottom"/>
-                    <TextBox x:Name="tbx_end" TextWrapping="Wrap" Margin="55,0,10.2,10.6" Height="20" VerticalContentAlignment="Center" VerticalAlignment="Bottom"/>
+                    <TextBox x:Name="tbx_end" TextWrapping="Wrap" Margin="55,0,10.2,10.6" Height="20" VerticalContentAlignment="Center" VerticalAlignment="Bottom" TextChanged="tbx_end_TextChanged"/>
                 </Grid>
             </GroupBox>
 
